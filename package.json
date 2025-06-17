@@ -5,11 +5,19 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
+    "format": "prettier --write \"src/**/*.{ts,html,scss}\"",
+    "prepare": "husky",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,html,scss}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "private": true,
   "dependencies": {
@@ -43,14 +51,21 @@
     "@angular/compiler-cli": "^19.0.0",
     "@angular/language-service": "^19.0.0",
     "@capacitor/cli": "7.3.0",
+    "@eslint/css": "^0.9.0",
+    "@eslint/js": "^9.29.0",
+    "@eslint/json": "^0.12.0",
     "@ionic/angular-toolkit": "^12.0.0",
     "@types/jasmine": "~5.1.0",
-    "@typescript-eslint/eslint-plugin": "^8.18.0",
-    "@typescript-eslint/parser": "^8.18.0",
-    "eslint": "^9.16.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jsdoc": "^48.2.1",
+    "@typescript-eslint/eslint-plugin": "^8.34.1",
+    "@typescript-eslint/parser": "^8.34.1",
+    "eslint": "^9.29.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsdoc": "^48.11.0",
     "eslint-plugin-prefer-arrow": "1.2.2",
+    "eslint-plugin-prettier": "^5.5.0",
+    "globals": "^16.2.0",
+    "husky": "^9.1.7",
     "jasmine-core": "~5.1.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~6.4.0",
@@ -58,7 +73,9 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.6.3"
+    "lint-staged": "^16.1.2",
+    "typescript": "~5.6.3",
+    "typescript-eslint": "^8.34.1"
   },
   "description": "An Ionic project"
 }

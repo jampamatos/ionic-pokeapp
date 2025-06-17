@@ -10,7 +10,7 @@ Prepara todo o esqueleto do projeto e define o tema global (cores, espaçamentos
 
 - [X] **US1.1** – Configurar repositório Git e branches de feature
 - [X] **US1.2** – Inicializar projeto Ionic+Angular
-- [ ] **US1.3** – Definir design tokens (SCSS): paleta pokédex-red, yellow, espaçamentos, border-radius
+- [X] **US1.3** – Definir design tokens (SCSS): paleta pokédex-red, yellow, espaçamentos, border-radius
 - [ ] **US1.4** – Configurar ESLint, Prettier e Husky (lint-staged)
 - [ ] **US1.5** – Criar pipeline CI (GitHub Actions) para build e lint
 
@@ -69,11 +69,11 @@ Documentação, testes e demonstração em mídia.
   - Criar branch `feature/initial-setup`
   - Executar scaffold via CLI
   - Commit inicial com estrutura básica
-- [ ] Definir design tokens
+- [X] Definir design tokens
   - Paleta de cores (pokedex-red, yellow, neutras)
   - Tipografia (familia, pesos, hierarquia de títulos)
   - Espaçamentos (sm, md, lg) e border-radius
-- [ ] Configurar lint & formatação
+- [X] Configurar lint & formatação
   - Instalar e ajustar ESLint
   - Instalar e ajustar Prettier
   - Documentar convenções de estilo no projeto
