@@ -32,3 +32,55 @@ Usaremos o padrão [Conventional Commits](https://www.conventionalcommits.org/pt
   - `feat: adicionar tela de listagem de pokemons`
   - `fix: corrigir bug no carregamento de imagens`
   - `chore: ajustes de configuração inicial`
+
+## Setup Local
+
+1. Clone o repositório
+
+```bash
+git clone <repo-url>
+cd ionic-pokeapp
+```
+
+2. Instale dependências
+
+```bash
+npm install
+```
+
+3. Prepare os hooks (só na primeira vez)
+
+```bash
+npm run prepare
+```
+
+4. Execute em dev
+
+```bash
+npm start
+```
+
+5. Para lint, formatação e testes:
+
+```bash
+npm run lint
+npm run format
+npm test
+```
+
+---
+
+## Integração Contínua (CI)
+
+Este projeto usa GitHub Actions para garantir build, lint e formatação em cada push ou pull request:
+
+- O workflow fica em `.github/workflows/ci.yml`.
+- Ele roda nas branches `main` e `feature/**`.
+- Passos executados:
+  1. Checkout do código
+  2. Instalação das dependências (`npm ci`)
+  3. Lint (`npm run lint`)
+  4. Checagem de formatação (`npx prettier --check "src/**/*.{ts,html,scss}"`)
+  5. Build do app (`npm run build`)
+
+Para ver o status do CI, acesse a aba **Actions** no GitHub após o push.
