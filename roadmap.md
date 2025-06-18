@@ -11,7 +11,7 @@ Prepara todo o esqueleto do projeto e define o tema global (cores, espaçamentos
 - [X] **US1.1** – Configurar repositório Git e branches de feature
 - [X] **US1.2** – Inicializar projeto Ionic+Angular
 - [X] **US1.3** – Definir design tokens (SCSS): paleta pokédex-red, yellow, espaçamentos, border-radius
-- [ ] **US1.4** – Configurar ESLint, Prettier e Husky (lint-staged)
+- [X] **US1.4** – Configurar ESLint, Prettier e Husky (lint-staged)
 - [ ] **US1.5** – Criar pipeline CI (GitHub Actions) para build e lint
 
 ## Epic 2 · Listagem de Pokémons
@@ -77,10 +77,10 @@ Documentação, testes e demonstração em mídia.
   - Instalar e ajustar ESLint
   - Instalar e ajustar Prettier
   - Documentar convenções de estilo no projeto
-- [ ] Configurar hooks de pré-commit
+- [X] Configurar hooks de pré-commit
   - Instalar Husky
   - Configurar lint-staged para rodar lint e prettier antes do commit
-- [ ] Criar pipeline de CI (GitHub Actions)
+- [X] Criar pipeline de CI (GitHub Actions)
   - Instalar dependências e executar build
   - Rodar lint e formatação
   - Executar testes (mesmo que inicialmente vazios)

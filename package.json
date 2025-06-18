@@ -3,6 +3,11 @@
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
+  "overrides": {
+    "rimraf" : "^4.0.2",
+    "glob": "^10.3.0",
+    "inflight": "^2.1.0"
+  },
   "scripts": {
     "ng": "ng",
     "format": "prettier --write \"src/**/*.{ts,html,scss}\"",
