@@ -10,9 +10,9 @@ Prepara todo o esqueleto do projeto e define o tema global (cores, espaçamentos
 
 - [X] **US1.1** – Configurar repositório Git e branches de feature
 - [X] **US1.2** – Inicializar projeto Ionic+Angular
-- [ ] **US1.3** – Definir design tokens (SCSS): paleta pokédex-red, yellow, espaçamentos, border-radius
-- [ ] **US1.4** – Configurar ESLint, Prettier e Husky (lint-staged)
-- [ ] **US1.5** – Criar pipeline CI (GitHub Actions) para build e lint
+- [X] **US1.3** – Definir design tokens (SCSS): paleta pokédex-red, yellow, espaçamentos, border-radius
+- [X] **US1.4** – Configurar ESLint, Prettier e Husky (lint-staged)
+- [X] **US1.5** – Criar pipeline CI (GitHub Actions) para build e lint
 
 ## Epic 2 · Listagem de Pokémons
 
@@ -57,36 +57,50 @@ Documentação, testes e demonstração em mídia.
 
 ## Epic Atual Detalhada
 
-### 1 · Setup & Infraestrutura
+### 2 · Listagem de Pokémons
 
-- [X] Criar repositório remoto
-  - Incluir README inicial e licença MIT
-- [X] Definir convenções de Git & branches
-  - `main` para produção
-  - `feature/*` para novas funcionalidades
-  - `hotfix/*` para correções emergenciais
-- [X] Inicializar projeto Ionic + Angular
-  - Criar branch `feature/initial-setup`
-  - Executar scaffold via CLI
-  - Commit inicial com estrutura básica
-- [ ] Definir design tokens
-  - Paleta de cores (pokedex-red, yellow, neutras)
-  - Tipografia (familia, pesos, hierarquia de títulos)
-  - Espaçamentos (sm, md, lg) e border-radius
-- [ ] Configurar lint & formatação
-  - Instalar e ajustar ESLint
-  - Instalar e ajustar Prettier
-  - Documentar convenções de estilo no projeto
-- [ ] Configurar hooks de pré-commit
-  - Instalar Husky
-  - Configurar lint-staged para rodar lint e prettier antes do commit
-- [ ] Criar pipeline de CI (GitHub Actions)
-  - Instalar dependências e executar build
-  - Rodar lint e formatação
-  - Executar testes (mesmo que inicialmente vazios)
-- [ ] Documentar setup local
-  - Passos para clone, instalação e execução
-  - Convenções de commits e branches
-- [ ] Pull Request & Merge
-  - Abrir PR de feature/initial-setup para main
-  - Revisão e merge após aprovação
+- [ ] Branch
+  - Criar branch `feature/pokedex-list` a partir de main
+- [ ] Scaffold de página
+  - Gerar `PokedexListPage` via CLI: `ionic generate page pages/pokedex-list`
+- [ ] Modelagem de dados
+  - Definir interfaces TypeScript para o retorno de `/pokemon?limit&offset`
+  - Definir modelo para resumo de Pokémon (`name, url`)
+- [ ] Serviço de API
+  - Criar `PokeApiService` com método `getPokemons(limit: number, offset: number)`
+  - Implementar tratamento de erros e tipagem de resposta
+- [ ] Injeção de dependência
+  - Registrar `PokeApiService` no módulo raiz (`AppModule`) ou módulo de páginas
+- [ ] Consulta inicial
+  - No `ionViewWillEnter` de `PokedexListPage`, chamar `getPokemons`
+  - Controlar estado de carregamento e exibir `<ion-spinner>`
+- [ ] Renderização do grid
+  - No template, usar `<ion-grid>` ou CSS Grid para dispor os cards
+  - Cada card deve conter:
+    - Sprite (imagem) do Pokémon
+    - Nome em caixa alta
+    - Ícone de favorito (estrela outline)
+- [ ] Busca reativa
+  - Incluir `<ion-searchbar>` no topo da lista
+  - Filtrar localmente o array de pokémons com debounce (ex.: 300ms)
+- [ ] Paginação
+  - Adicionar botões “Anterior” e “Próximo” abaixo do grid
+  - Manter `currentPage` e recalcular `offset = (currentPage – 1) × limit`
+  - Desabilitar “Anterior” em `currentPage = 1` e “Próximo” em última página
+- [ ] Responsividade
+  - Em portrait: 2 colunas; em landscape: 3 colunas
+  - Ajustar via CSS custom properties (`--ion-grid-columns`) ou media queries SCSS
+- [ ] Tratamento de erros
+  - Exibir `<ion-toast>` ou `<ion-text color="danger">` em caso de falha na requisição
+- [ ] Estilização
+  - Aplicar design tokens (cores, espaçamentos, border-radius) nos cards e botões
+  - Garantir contraste e alinhamento consistentes
+- [ ] Commits frequentes
+  - Após cada item acima, criar commit com Conventional Commit:
+    - `feat(pokedex): create PokeApiService`
+    - `feat(pokedex): scaffold PokedexListPage`
+    - `fix(pokedex): handle API errors in list page`
+    - …
+- [ ] Pull Request
+  - Ao finalizar todos os itens, abrir PR `feature/pokedex-list → main`
+  - Descrever brevemente as mudanças e linkar as US do Epic 2
