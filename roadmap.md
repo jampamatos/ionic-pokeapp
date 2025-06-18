@@ -59,9 +59,9 @@ Documentação, testes e demonstração em mídia.
 
 ### 2 · Listagem de Pokémons
 
-- [ ] Branch
+- [X] Branch
   - Criar branch `feature/pokedex-list` a partir de main
-- [ ] Scaffold de página
+- [X] Scaffold de página
   - Gerar `PokedexListPage` via CLI: `ionic generate page pages/pokedex-list`
 - [ ] Modelagem de dados
   - Definir interfaces TypeScript para o retorno de `/pokemon?limit&offset`
