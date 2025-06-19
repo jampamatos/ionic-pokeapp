@@ -33,3 +33,44 @@
   width: 100%;
   flex: 1; // grow if needed
 }
+
+// === Screen frame externo ===
+.pokedex-screen {
+  background-color: $gray-900; // tela frame escura
+  border: 4px solid darken($gray-900, 10%); // borda pesada
+  border-radius: $radius-md; // cantos arredondados
+  padding: $spacing-xxs; // espaço interno fino
+  margin-bottom: $spacing-lg; // distância até controles
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+// === Screen interno com CRT overlay ===
+.pokedex-screen-inner {
+  background-color: #000; // fundo preto puro
+  border: 2px solid $gray-800; // borda interna
+  border-radius: $radius-sm; // cantos levemente arredondados
+  padding: $spacing-md; // espaço para o conteúdo
+  min-height: 400px; // altura mínima
+  max-height: 500px; // altura máxima
+  overflow: hidden; // esconde excesso
+  position: relative;
+  font-family: Monaco, 'Lucida Console', monospace; // fonte retrô
+  font-size: 12px; // tamanho de terminal
+
+  // efeito de linhas de CRT
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 0, 0.1) 2px,
+      rgba(0, 255, 0, 0.1) 4px
+    );
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}
