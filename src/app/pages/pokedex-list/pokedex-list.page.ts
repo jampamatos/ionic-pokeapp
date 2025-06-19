@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
 import { PokeApiService } from '../../services/poke-api.service';
 import { PokemonSummary } from '../../models/pokemon.model';
 import type { SearchbarCustomEvent } from '@ionic/angular';
 
 @Component({
   selector: 'app-pokedex-list',
+  standalone: true,
+  imports: [CommonModule, IonicModule, FormsModule],
   templateUrl: './pokedex-list.page.html',
   styleUrls: ['./pokedex-list.page.scss'],
 })
