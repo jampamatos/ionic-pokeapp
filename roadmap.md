@@ -59,38 +59,38 @@ Documentação, testes e demonstração em mídia.
 
 ### 2 · Listagem de Pokémons
 
-- [ ] Branch
+- [X] Branch
   - Criar branch `feature/pokedex-list` a partir de main
-- [ ] Scaffold de página
+- [X] Scaffold de página
   - Gerar `PokedexListPage` via CLI: `ionic generate page pages/pokedex-list`
-- [ ] Modelagem de dados
+- [X] Modelagem de dados
   - Definir interfaces TypeScript para o retorno de `/pokemon?limit&offset`
   - Definir modelo para resumo de Pokémon (`name, url`)
-- [ ] Serviço de API
+- [X] Serviço de API
   - Criar `PokeApiService` com método `getPokemons(limit: number, offset: number)`
   - Implementar tratamento de erros e tipagem de resposta
-- [ ] Injeção de dependência
+- [X] Injeção de dependência
   - Registrar `PokeApiService` no módulo raiz (`AppModule`) ou módulo de páginas
-- [ ] Consulta inicial
+- [X] Consulta inicial
   - No `ionViewWillEnter` de `PokedexListPage`, chamar `getPokemons`
   - Controlar estado de carregamento e exibir `<ion-spinner>`
-- [ ] Renderização do grid
+- [X] Renderização do grid
   - No template, usar `<ion-grid>` ou CSS Grid para dispor os cards
   - Cada card deve conter:
     - Sprite (imagem) do Pokémon
     - Nome em caixa alta
     - Ícone de favorito (estrela outline)
-- [ ] Busca reativa
+- [X] Busca reativa
   - Incluir `<ion-searchbar>` no topo da lista
   - Filtrar localmente o array de pokémons com debounce (ex.: 300ms)
-- [ ] Paginação
+- [X] Paginação
   - Adicionar botões “Anterior” e “Próximo” abaixo do grid
   - Manter `currentPage` e recalcular `offset = (currentPage – 1) × limit`
   - Desabilitar “Anterior” em `currentPage = 1` e “Próximo” em última página
-- [ ] Responsividade
+- [X] Responsividade
   - Em portrait: 2 colunas; em landscape: 3 colunas
   - Ajustar via CSS custom properties (`--ion-grid-columns`) ou media queries SCSS
-- [ ] Tratamento de erros
+- [X] Tratamento de erros
   - Exibir `<ion-toast>` ou `<ion-text color="danger">` em caso de falha na requisição
 - [ ] Estilização
   - Aplicar design tokens (cores, espaçamentos, border-radius) nos cards e botões
