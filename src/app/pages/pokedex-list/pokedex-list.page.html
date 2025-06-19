@@ -2,6 +2,18 @@
 <ion-content class="ion-no-padding">
   <!-- Main Pokédex device wrapper -->
   <div class="pokedex-device">
+    <!-- Indicadores superiores -->
+    <div class="pokedex-indicators">
+      <!-- Círculo azul principal -->
+      <div class="indicator-power"></div>
+      <!-- Luzes de status -->
+      <div class="indicator-lights">
+        <div class="light yellow"></div>
+        <div class="light red"></div>
+        <div class="light green"></div>
+      </div>
+    </div>
+
     <!-- Screen Frame -->
     <div class="pokedex-screen">
       <!-- Inner black screen with CRT overlay -->
@@ -38,10 +50,26 @@
     </div>
     <!-- .pokedex-screen -->
 
-    <!-- Pagination controls -->
-    <div class="ion-text-center ion-margin-top">
-      <ion-button (click)="prevPage()" [disabled]="!hasPrevious"> Anterior </ion-button>
-      <ion-button (click)="nextPage()" [disabled]="!hasNext"> Próximo </ion-button>
+    <!-- Painel de controles inferiores -->
+    <div class="pokedex-controls">
+      <div class="controls-left">
+        <div class="btn-red"></div>
+        <div class="speaker">
+          <div class="speaker-hole"></div>
+          <div class="speaker-hole"></div>
+          <div class="speaker-hole"></div>
+          <div class="speaker-hole"></div>
+        </div>
+      </div>
+      <div class="controls-center">
+        <div class="btn-green">RESET</div>
+      </div>
+      <div class="controls-right">
+        <div class="dpad">
+          <div class="dpad-left"></div>
+          <div class="dpad-right"></div>
+        </div>
+      </div>
     </div>
   </div>
   <!-- .pokedex-device -->

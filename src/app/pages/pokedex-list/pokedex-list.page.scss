@@ -58,6 +58,37 @@
   font-family: Monaco, 'Lucida Console', monospace; // fonte retrô
   font-size: 12px; // tamanho de terminal
 
+  // customiza o ion-searchbar interno
+  ion-searchbar {
+    width: 100%;
+    --background: transparent;
+    --border-radius: $radius-sm;
+    --color: $green-400;
+    --icon-color: $green-400;
+    --placeholder-color: rgba($green-400, 0.6);
+    --padding-start: 2.5rem; // espaço para o ícone
+  }
+
+  // contêiner da input para borda custom
+  ion-searchbar .searchbar-input-container {
+    border: 2px solid $green-600;
+    border-radius: $radius-sm;
+    background: transparent;
+    box-shadow: inset 0 1px 2px rgba(0, 255, 0, 0.1);
+  }
+
+  // input em si: fonte monoespaçada e uppercase
+  ion-searchbar .searchbar-input {
+    font-family: Monaco, 'Lucida Console', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  // posiciona o ícone de lupa
+  ion-searchbar .searchbar-search-icon {
+    left: 0.75rem;
+  }
+
   // efeito de linhas de CRT
   &::before {
     content: '';
@@ -73,4 +104,129 @@
     opacity: 0.3;
     pointer-events: none;
   }
+}
+
+// === Indicadores superiores ===
+.pokedex-indicators {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: $spacing-md;
+}
+
+.indicator-power {
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, #67e8f9, #2563eb);
+  border: 4px solid #fff;
+  border-radius: 50%;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0.5rem;
+    background: linear-gradient(45deg, #2563eb, #67e8f9);
+    border-radius: 50%;
+  }
+}
+
+.indicator-lights {
+  display: flex;
+  gap: $spacing-xxs;
+}
+
+.light {
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 2px solid;
+  border-radius: 50%;
+  &.yellow {
+    background-color: $pokedex-yellow;
+    border-color: darken($pokedex-yellow, 20%);
+  }
+  &.red {
+    background-color: $pokedex-red;
+    border-color: darken($pokedex-red, 20%);
+  }
+  &.green {
+    background-color: #22c55e;
+    border-color: darken(#22c55e, 20%);
+  }
+}
+
+// === Painel de controles inferiores ===
+.pokedex-controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: $spacing-lg;
+}
+
+.controls-left,
+.controls-center,
+.controls-right {
+  display: flex;
+  align-items: center;
+}
+
+.controls-left {
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.btn-red {
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(to bottom, lighten($pokedex-red, 20%), darken($pokedex-red, 20%));
+  border: 4px solid darken($pokedex-red, 20%);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.speaker {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xxs;
+}
+
+.speaker-hole {
+  width: 0.5rem;
+  height: 0.25rem;
+  background-color: darken($pokedex-red, 30%);
+  border-radius: $radius-sm;
+}
+
+.controls-center {
+  flex: 1;
+  justify-content: center;
+}
+
+.btn-green {
+  padding: $spacing-xs $spacing-md;
+  background: linear-gradient(to bottom, #4ade80, #16a34a);
+  border: 4px solid darken(#4ade80, 20%);
+  border-radius: $radius-sm;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.controls-right {
+  justify-content: flex-end;
+}
+
+.dpad {
+  display: flex;
+  gap: $spacing-xxs;
+}
+
+.dpad-left,
+.dpad-right {
+  width: 1rem;
+  height: 3rem;
+  background-color: $gray-800;
+  border: 2px solid darken($gray-800, 20%);
+  border-radius: $radius-sm;
 }
