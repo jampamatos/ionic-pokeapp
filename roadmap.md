@@ -80,10 +80,10 @@ Documentação, testes e demonstração em mídia.
     - Sprite (imagem) do Pokémon
     - Nome em caixa alta
     - Ícone de favorito (estrela outline)
-- [ ] Busca reativa
+- [X] Busca reativa
   - Incluir `<ion-searchbar>` no topo da lista
   - Filtrar localmente o array de pokémons com debounce (ex.: 300ms)
-- [ ] Paginação
+- [X] Paginação
   - Adicionar botões “Anterior” e “Próximo” abaixo do grid
   - Manter `currentPage` e recalcular `offset = (currentPage – 1) × limit`
   - Desabilitar “Anterior” em `currentPage = 1` e “Próximo” em última página
