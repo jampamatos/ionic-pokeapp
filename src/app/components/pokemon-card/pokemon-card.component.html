@@ -1,0 +1,12 @@
+<!-- File: src/app/components/pokemon-card/pokemon-card.component.html -->
+<div class="card">
+  <ion-img
+    [src]="pokemon.sprite || 'https://via.placeholder.com/96'"
+    alt="{{ pokemon.name }}"
+  ></ion-img>
+  <div class="info">
+    <h3>{{ pokemon.name | uppercase }}</h3>
+    <span class="id">#{{ pokemon.id | number: '3.0' }}</span>
+  </div>
+  <ion-icon class="fav" [name]="isFavorite ? 'star' : 'star-outline'"></ion-icon>
+</div>

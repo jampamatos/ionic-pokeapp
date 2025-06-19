@@ -216,17 +216,3 @@
 .controls-right {
   justify-content: flex-end;
 }
-
-.dpad {
-  display: flex;
-  gap: $spacing-xxs;
-}
-
-.dpad-left,
-.dpad-right {
-  width: 1rem;
-  height: 3rem;
-  background-color: $gray-800;
-  border: 2px solid darken($gray-800, 20%);
-  border-radius: $radius-sm;
-}

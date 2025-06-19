@@ -1,3 +1,4 @@
+// File: src/app/pages/pokedex-list/pokedex-list.page.spec.ts
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PokedexListPage } from './pokedex-list.page';
 
@@ -6,6 +7,7 @@ describe('PokedexListPage', () => {
   let fixture: ComponentFixture<PokedexListPage>;
 
   beforeEach(() => {
+    TestBed.configureTestingModule({});
     fixture = TestBed.createComponent(PokedexListPage);
     component = fixture.componentInstance;
     fixture.detectChanges();

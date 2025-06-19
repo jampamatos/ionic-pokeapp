@@ -1,0 +1,6 @@
+<!-- File: src/app/components/favorites-toggle/favorites-toggle.component.html -->
+<button (click)="toggle.emit()" class="toggle" [class.active]="show">
+  <ion-icon name="star"></ion-icon>
+  <span>{{ show ? 'ALL' : 'FAVS' }}</span>
+  <span *ngIf="count > 0" class="count">{{ count }}</span>
+</button>

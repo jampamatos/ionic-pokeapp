@@ -18,33 +18,17 @@
     <div class="pokedex-screen">
       <!-- Inner black screen with CRT overlay -->
       <div class="pokedex-screen-inner">
-        <!-- Search bar -->
-        <ion-searchbar
-          debounce="300"
-          (ionInput)="onSearchChange($event)"
-          placeholder="Search Pokémon"
-        >
-        </ion-searchbar>
-
-        <!-- Loading spinner -->
-        <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
-
-        <!-- Pokémon card grid -->
-        <ion-grid *ngIf="!isLoading">
-          <ion-row>
-            <ion-col size="6" size-md="4" size-lg="3" *ngFor="let pokemon of pokemons">
-              <ion-card>
-                <!-- Pokémon sprite -->
-                <ion-img src="https://via.placeholder.com/96" alt="{{ pokemon.name }}"> </ion-img>
-                <ion-card-header>
-                  <ion-card-title>{{ pokemon.name | uppercase }}</ion-card-title>
-                </ion-card-header>
-                <!-- Favorite icon -->
-                <ion-icon name="star-outline"></ion-icon>
-              </ion-card>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+        <app-favorites-toggle
+          [show]="showFavorites"
+          [count]="favorites.length"
+          (toggle)="toggleFavoritesView()"
+        ></app-favorites-toggle>
+        <app-pokemon-grid
+          [page]="currentPage"
+          [showFavorites]="showFavorites"
+          [favorites]="favorites"
+          (toggleFavorite)="toggleFavorite($event)"
+        ></app-pokemon-grid>
       </div>
       <!-- .pokedex-screen-inner -->
     </div>
@@ -65,10 +49,11 @@
         <div class="btn-green">RESET</div>
       </div>
       <div class="controls-right">
-        <div class="dpad">
-          <div class="dpad-left"></div>
-          <div class="dpad-right"></div>
-        </div>
+        <app-navigation-controls
+          [page]="currentPage"
+          [total]="totalPages"
+          (pageChange)="changePage($event)"
+        ></app-navigation-controls>
       </div>
     </div>
   </div>

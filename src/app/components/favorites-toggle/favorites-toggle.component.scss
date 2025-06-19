@@ -1,0 +1,23 @@
+// File: src/app/components/favorites-toggle/favorites-toggle.component.scss
+@import '../../../theme/variables.scss';
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-xs $spacing-sm;
+  border: 2px solid $green-600;
+  background: $gray-900;
+  color: $green-600;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  &.active {
+    background: $pokedex-yellow;
+    color: #000;
+  }
+  .count {
+    background: $green-600;
+    color: 000;
+    padding: 0, $spacing-xs;
+    border-radius: $radius-sm;
+  }
+}

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { PokemonListResponse } from '../models/pokemon.model';
+import { PokemonListResponse, PokemonDetail } from '../models/pokemon.model';
 
 const API_URL = 'https://pokeapi.co/api/v2';
 
@@ -27,5 +27,14 @@ export class PokeApiService {
           return throwError(() => new Error('Failed to fetch Pokémon list'));
         })
       );
+  }
+  /** Fetch a single Pokémon by name */
+  getPokemon(name: string): Observable<PokemonDetail> {
+    return this.http.get<PokemonDetail>(`${API_URL}/pokemon/${name}`).pipe(
+      catchError((error) => {
+        console.error('Error fetching Pokémon detail:', error);
+        return throwError(() => new Error('Failed to fetch Pokémon'));
+      })
+    );
   }
 }

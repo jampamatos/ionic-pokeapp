@@ -17,3 +17,13 @@ export interface PokemonListResponse {
   previous: string | null;
   results: PokemonSummary[];
 }
+
+/**
+ * Details for a Pokémon
+ */
+export interface PokemonDetail {
+  id: number;
+  name: string;
+  sprites: { front_default: string };
+  types: { type: { name: string } }[];
+}

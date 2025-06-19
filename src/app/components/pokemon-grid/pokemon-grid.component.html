@@ -1,0 +1,10 @@
+<!-- File: src/app/components/pokemon-grid/pokemon-grid.component.html -->
+<div class="grid">
+  <ng-container *ngFor="let p of pokemons">
+    <app-pokemon-card
+      [pokemon]="p"
+      [isFavorite]="favorites.includes(p.id)"
+      (click)="toggleFavorite.emit(p.id)"
+    ></app-pokemon-card>
+  </ng-container>
+</div>

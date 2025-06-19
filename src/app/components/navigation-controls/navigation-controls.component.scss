@@ -1,0 +1,18 @@
+// File: src/app/components/navigation-controls/navigation-controls.component.scss
+@import '../../../theme/variables.scss';
+
+.dpad {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  .dpad-btn {
+    background: $gray-800;
+    border: 2px solid darken($gray-800, 20%);
+    color: $neutral-100;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
