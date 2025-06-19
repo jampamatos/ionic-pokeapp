@@ -1,3 +1,4 @@
+// File: src/app/pages/pokedex-list/pokedex-list.modules.ts
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
