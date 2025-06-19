@@ -1,0 +1,35 @@
+// File: src/app/pages/pokedex-list/pokedex-list.page.scss
+
+// Import design tokens
+@import '../../../theme/variables.scss';
+
+// Container for the Pokédex device frame
+.pokedex-device {
+  background-color: $pokedex-red; // main red body
+  border: 4px solid darken($pokedex-red, 20%); // darker edge
+  border-radius: $radius-lg $radius-lg $radius-md $radius-md; // rounded corners
+  box-shadow:
+    inset 0 4px 8px rgba(0, 0, 0, 0.3),
+    0 8px 16px rgba(0, 0, 0, 0.4);
+  padding: $spacing-lg; // inner spacing
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// Search bar spans full width
+.pokedex-device ion-searchbar {
+  width: 100%;
+  margin-bottom: $spacing-md;
+}
+
+// Center the loading spinner
+.pokedex-device ion-spinner {
+  margin: $spacing-md auto;
+}
+
+// Make the grid fill available area
+.pokedex-device ion-grid {
+  width: 100%;
+  flex: 1; // grow if needed
+}
