@@ -1,9 +1,11 @@
+// File: src/app/pages/pokedex-list/pokedex-list.page.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { PokeApiService } from '../../services/poke-api.service';
 import { PokemonSummary } from '../../models/pokemon.model';
+import { ToastController } from '@ionic/angular';
 import type { SearchbarCustomEvent } from '@ionic/angular';
 
 @Component({
@@ -26,7 +28,10 @@ export class PokedexListPage {
   hasNext = false;
   hasPrevious = false;
 
-  constructor(private pokeApi: PokeApiService) {}
+  constructor(
+    private pokeApi: PokeApiService,
+    private toastController: ToastController
+  ) {}
 
   ionViewWillEnter(): void {
     this.loadPokemons();
@@ -49,7 +54,7 @@ export class PokedexListPage {
       },
       error: () => {
         this.isLoading = false;
-        // TODO: show error toast
+        this.presentError('Falha ao carregar a lista de pokémons. Tente novamente mais tarde.');
       },
     });
   }
@@ -83,5 +88,18 @@ export class PokedexListPage {
     this.pokemons = filter
       ? this.allPokemons.filter((p) => p.name.toLowerCase().includes(filter))
       : [...this.allPokemons];
+  }
+
+  /**
+   * Presents an error toast message.
+   */
+  async presentError(message: string): Promise<void> {
+    const toast = await this.toastController.create({
+      message,
+      duration: 3000,
+      position: 'bottom',
+      color: 'danger',
+    });
+    await toast.present();
   }
 }

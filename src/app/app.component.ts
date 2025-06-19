@@ -1,3 +1,4 @@
+// File: src/app/app.component.ts
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
