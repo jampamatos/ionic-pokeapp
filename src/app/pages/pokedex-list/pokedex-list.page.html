@@ -26,4 +26,9 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+  <!-- Pagination -->
+  <div class="ion-text-center ion-margin-top">
+    <ion-button (click)="prevPage()" [disabled]="!hasPrevious"> Anterior </ion-button>
+    <ion-button (click)="nextPage()" [disabled]="!hasNext"> Próximo </ion-button>
+  </div>
 </ion-content>
