@@ -63,18 +63,18 @@ Documentação, testes e demonstração em mídia.
   - Criar branch `feature/pokedex-list` a partir de main
 - [X] Scaffold de página
   - Gerar `PokedexListPage` via CLI: `ionic generate page pages/pokedex-list`
-- [ ] Modelagem de dados
+- [X] Modelagem de dados
   - Definir interfaces TypeScript para o retorno de `/pokemon?limit&offset`
   - Definir modelo para resumo de Pokémon (`name, url`)
-- [ ] Serviço de API
+- [X] Serviço de API
   - Criar `PokeApiService` com método `getPokemons(limit: number, offset: number)`
   - Implementar tratamento de erros e tipagem de resposta
-- [ ] Injeção de dependência
+- [X] Injeção de dependência
   - Registrar `PokeApiService` no módulo raiz (`AppModule`) ou módulo de páginas
-- [ ] Consulta inicial
+- [X] Consulta inicial
   - No `ionViewWillEnter` de `PokedexListPage`, chamar `getPokemons`
   - Controlar estado de carregamento e exibir `<ion-spinner>`
-- [ ] Renderização do grid
+- [X] Renderização do grid
   - No template, usar `<ion-grid>` ou CSS Grid para dispor os cards
   - Cada card deve conter:
     - Sprite (imagem) do Pokémon

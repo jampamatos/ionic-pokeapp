@@ -5,6 +5,9 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <!-- Search bar -->
+  <ion-searchbar debounce="300" (ionInput)="onSearchChange($event)" placeholder="Search Pokémon">
+  </ion-searchbar>
   <!-- Spinner while loading -->
   <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
 
