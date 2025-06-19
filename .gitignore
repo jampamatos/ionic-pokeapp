@@ -3,9 +3,9 @@
 
 *~
 *.sw[mnpcod]
-.tmp
-*.tmp
-*.tmp.*
+#.tmp
+#*.tmp
+#*.tmp.*
 UserInterfaceState.xcuserstate
 $RECYCLE.BIN/
 
