@@ -87,10 +87,10 @@ Documentação, testes e demonstração em mídia.
   - Adicionar botões “Anterior” e “Próximo” abaixo do grid
   - Manter `currentPage` e recalcular `offset = (currentPage – 1) × limit`
   - Desabilitar “Anterior” em `currentPage = 1` e “Próximo” em última página
-- [ ] Responsividade
+- [X] Responsividade
   - Em portrait: 2 colunas; em landscape: 3 colunas
   - Ajustar via CSS custom properties (`--ion-grid-columns`) ou media queries SCSS
-- [ ] Tratamento de erros
+- [X] Tratamento de erros
   - Exibir `<ion-toast>` ou `<ion-text color="danger">` em caso de falha na requisição
 - [ ] Estilização
   - Aplicar design tokens (cores, espaçamentos, border-radius) nos cards e botões
