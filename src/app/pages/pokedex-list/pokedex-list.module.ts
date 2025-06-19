@@ -15,6 +15,5 @@ const routes: Routes = [
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, RouterModule.forChild(routes), PokedexListPage],
-  declarations: [PokedexListPage],
 })
 export class PokedexListPageModule {}
