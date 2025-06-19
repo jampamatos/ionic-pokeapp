@@ -1,17 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { PokeApiService } from '../../services/poke-api.service';
+import { PokemonSummary } from '../../models/pokemon.model';
 
-@Component({
-  selector: 'app-pokedex-list',
-  templateUrl: './pokedex-list.page.html',
-  styleUrls: ['./pokedex-list.page.scss'],
-  standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule],
-})
-export class PokedexListPage implements OnInit {
-  constructor() {}
+export class PokedexListPage {
+  pokemons: PokemonSummary[] = [];
+  isLoading = false;
+  limit = 20;
+  offset = 0;
 
-  ngOnInit() {}
+  constructor(private pokeApi: PokeApiService) {}
+
+  ionViewWillEnter(): void {
+    this.isLoading = true;
+    this.pokeApi.getPokemons(this.limit, this.offset).subscribe({
+      next: (resp) => {
+        this.pokemons = resp.results;
+        this.isLoading = false;
+      },
+      error: () => {
+        this.isLoading = false;
+        // TODO: exibir toas de erro
+      },
+    });
+  }
 }
