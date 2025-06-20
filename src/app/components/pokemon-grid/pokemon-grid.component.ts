@@ -13,7 +13,8 @@ import { PokemonCardComponent, PokemonCardData } from '../pokemon-card/pokemon-c
   styleUrls: ['./pokemon-grid.component.scss'],
 })
 export class PokemonGridComponent implements OnChanges {
-  @Input() page = 1;
+  @Input() currentPage = 1;
+  @Input() searchTerm = '';
   @Input() showFavorites = false;
   @Input() favorites: number[] = [];
   @Output() toggleFavorite = new EventEmitter<number>();
@@ -28,7 +29,7 @@ export class PokemonGridComponent implements OnChanges {
 
   loadPage(): void {
     const limit = 4;
-    const offset = (this.page - 1) * limit;
+    const offset = (this.currentPage - 1) * limit;
     this.api.getPokemons(limit, offset).subscribe({
       next: (resp) => {
         this.pokemons = [];

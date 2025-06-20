@@ -1,5 +1,6 @@
 // File: src/app/pages/pokedex-list/pokedex-list.page.ts
 import { Component } from '@angular/core';
+import { SearchbarInputEventDetail } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
@@ -50,7 +51,7 @@ export class PokedexListPage {
    * Handler called by ion-searchbar (ionInput).
    * Updates seach term and resets to first page.
    */
-  onSearchInput(event: CustomEvent<{ value: string }>): void {
+  onSearchInput(event: CustomEvent<SearchbarInputEventDetail>): void {
     const value = event.detail?.value ?? '';
     this.searchTerm = value;
     this.currentPage = 1;
