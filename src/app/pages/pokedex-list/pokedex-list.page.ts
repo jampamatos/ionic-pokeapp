@@ -24,6 +24,7 @@ import { FavoritesToggleComponent } from '../../components/favorites-toggle/favo
 })
 export class PokedexListPage {
   currentPage = 1;
+  searchTerm = '';
   showFavorites = false;
   favorites: number[] = [];
   totalPages = 150 / 4; // PokeAPI has 150 first-gen pokémon
@@ -43,5 +44,15 @@ export class PokedexListPage {
 
   toggleFavoritesView(): void {
     this.showFavorites = !this.showFavorites;
+  }
+
+  /**
+   * Handler called by ion-searchbar (ionInput).
+   * Updates seach term and resets to first page.
+   */
+  onSearchInput(event: CustomEvent<{ value: string }>): void {
+    const value = event.detail?.value ?? '';
+    this.searchTerm = value;
+    this.currentPage = 1;
   }
 }

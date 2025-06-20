@@ -3,6 +3,7 @@
 // Colors
 $pokedex-red: #ee1515;
 $pokedex-yellow: #ffde00;
+$green-400: #4ade80;
 $green-600: #22c55e;
 $neutral-100: #f5f5f5;
 $neutral-200: #eeeeee;
@@ -27,6 +28,7 @@ $spacing-xs: 0.125rem; // ~2px
 $spacing-sm: 0.25rem; // ~4px
 $spacing-md: 0.5rem; // ~8px
 $spacing-lg: 1rem; // ~16px
+$spacing-xl: 2rem; // ~32px
 
 // Border Radius
 $radius-sm: 0.25rem; // ~4px
@@ -36,3 +38,9 @@ $radius-lg: 1rem; // ~16px
 // Grayscale
 $gray-900: #111827;
 $gray-800: #1f2937;
+
+// Searchbar
+$searchbar-height: 2.5rem;
+$searchbar-border-width: 2px;
+$searchbar-border-color: $green-400;
+$searchbar-padding-inline: 2.5rem; // para o ícone
