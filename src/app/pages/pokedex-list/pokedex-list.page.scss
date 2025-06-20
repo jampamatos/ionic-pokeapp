@@ -303,38 +303,31 @@ ion-content {
   width: calc(100% - #{$spacing-lg} * 2);
   height: $searchbar-height;
   margin: $spacing-xs auto $spacing-md;
+  border: $searchbar-border-width solid $searchbar-border-color;
+  border-radius: $radius-sm;
 
-  --color: $green-400; // faz texto e placeholder ficarem verdes
-  --placeholder-color: $green-400; // placeholder também
-  --icon-color: $green-400;
-  --placeholder-color: $green-400;
+  --color: #37a55f; // faz texto e placeholder ficarem verdes
+  --placeholder-color: #37a55f;
+  --icon-color: #37a55f;
   --padding-start: $searchbar-padding-inline;
-
+  --background: transparent;
   --box-shadow: none;
+
   padding: 0;
   border: $searchbar-border-width solid $searchbar-border-color;
   border-radius: $radius-sm;
 }
 
-.screen-header + ion-searchbar::part(native) {
-  font-family: Monaco, 'Lucida Console', monospace;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.screen-header + ion-searchbar {
-  border: $searchbar-border-width solid $searchbar-border-color;
-  border-radius: $radius-sm;
-  --background: transparent;
-  --box-shadow: none;
-}
-
-.screen-header + ion-searchbar::part(input) {
+.screen-header + ion-searchbar::part(input) input {
   color: $green-400;
   font-family: Monaco, 'Lucida Console', monospace;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  padding-inline-start: $searchbar-padding-inline;
+  // letter-spacing: 1px;
+  // padding-inline-start: $searchbar-padding-inline;
+}
+
+.screen-header + ion-searchbar::part(input) input::placeholder {
+  color: $green-400;
 }
 
 .screen-header + ion-searchbar::part(search-icon),
@@ -342,10 +335,25 @@ ion-content {
   color: $green-400;
 }
 
-.screen-header + ion-searchbar::part(input)::placeholder {
+.screen-header + ion-searchbar::part(input)::-webkit-input-placeholder {
   color: $green-400;
-  opacity: 1;
-  text-transform: uppercase;
-  letter-spacing: 1px;
   font-family: Monaco, 'Lucida Console', monospace;
+}
+.screen-header + ion-searchbar::part(input)::-moz-placeholder {
+  color: $green-400;
+  font-family: Monaco, 'Lucida Console', monospace;
+}
+.screen-header + ion-searchbar::part(input):-ms-input-placeholder {
+  color: $green-400;
+  font-family: Monaco, 'Lucida Console', monospace;
+}
+
+// força fonte monoespaçada no input interno do ion-searchbar (CRT screen)
+.pokedex-screen-inner ion-searchbar::part(input) input {
+  font-family: Monaco, 'Lucida Console', monospace !important;
+}
+
+// força fonte monoespaçada nos searchbars após screen-header
+.screen-header + ion-searchbar::part(input) input {
+  font-family: Monaco, 'Lucida Console', monospace !important;
 }

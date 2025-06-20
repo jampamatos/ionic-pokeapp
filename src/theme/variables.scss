@@ -44,3 +44,7 @@ $searchbar-height: 2.5rem;
 $searchbar-border-width: 2px;
 $searchbar-border-color: $green-400;
 $searchbar-padding-inline: 2rem;
+
+:root {
+  --ion-font-family: 'Monaco', 'Lucida Console', monospace;
+}
