@@ -1,6 +1,6 @@
 // File: src/app/components/pokemon-card/pokemon-card.component.ts
-
 import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
 export interface PokemonCardData {
@@ -13,7 +13,7 @@ export interface PokemonCardData {
 @Component({
   selector: 'app-pokemon-card',
   standalone: true,
-  imports: [IonicModule],
+  imports: [CommonModule, IonicModule],
   templateUrl: './pokemon-card.component.html',
   styleUrls: ['./pokemon-card.component.scss'],
 })

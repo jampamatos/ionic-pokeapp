@@ -1,11 +1,12 @@
 // File: src/app/components/favorites-toggle/favorites-toggle.component.ts
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-favorites-toggle',
   standalone: true,
-  imports: [IonicModule],
+  imports: [CommonModule, IonicModule],
   templateUrl: './favorites-toggle.component.html',
   styleUrls: ['./favorites-toggle.component.scss'],
 })
