@@ -80,20 +80,32 @@ ion-content {
   // customiza o ion-searchbar interno
   ion-searchbar {
     width: 100%;
-    --background: transparent;
+    --background: #000;
     --border-radius: $radius-sm;
     --color: $green-400;
-    --icon-color: $green-400;
-    --placeholder-color: rgba($green-400, 0.6);
-    --padding-start: 2.5rem; // espaço para o ícone
+    --icon-color: $green-600;
+    --placeholder-color: rgba($green-600, 0.6);
+    --padding-start: $searchbar-padding-inline; // espaço para o ícone
   }
 
   // contêiner da input para borda custom
   ion-searchbar .searchbar-input-container {
+    position: relative;
     border: 2px solid $green-600;
     border-radius: $radius-sm;
     background: transparent;
     box-shadow: inset 0 1px 2px rgba(0, 255, 0, 0.1);
+    background: #000;
+    box-shadow: inset 0 0 4px rgba($green-400, 0.2);
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba($green-400, 0.2);
+      border-radius: inherit;
+      pointer-events: none;
+    }
   }
 
   // input em si: fonte monoespaçada e uppercase
@@ -101,6 +113,15 @@ ion-content {
     font-family: Monaco, 'Lucida Console', monospace;
     text-transform: uppercase;
     letter-spacing: 1px;
+    transition:
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px $green-400;
+      border-color: $green-400;
+    }
   }
 
   // posiciona o ícone de lupa
@@ -283,22 +304,40 @@ ion-content {
   height: $searchbar-height;
   margin: $spacing-xs auto $spacing-md;
 
-  --background: transparent;
-  --border-radius: $radius-sm;
-  --border-width: $searchbar-border-width;
-  --border-color: $searchbar-border-color;
-  --color: $green-400;
   --icon-color: $green-400;
-  --placeholder-color: rgba($green-400, 0.6);
+  --placeholder-color: $green-400;
   --padding-start: $searchbar-padding-inline;
 
   --box-shadow: none;
   padding: 0;
+  border: $searchbar-border-width solid $searchbar-border-color;
+  border-radius: $radius-sm;
 }
 
-.screen-header + ion-searchbar .searchbar-input-container {
-  background: transparent;
+.screen-header + ion-searchbar {
   border: $searchbar-border-width solid $searchbar-border-color;
-  box-shadow: none;
-  height: 100%;
+  border-radius: $radius-sm;
+  --background: transparent;
+  --box-shadow: none;
+}
+
+.screen-header + ion-searchbar::part(input) {
+  color: $green-400;
+  font-family: Monaco, 'Lucida Console', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-inline-start: $searchbar-padding-inline;
+}
+
+.screen-header + ion-searchbar::part(search-icon),
+.screen-header + ion-searchbar::part(clear-icon) {
+  color: $green-400;
+}
+
+.screen-header + ion-searchbar::part(input)::placeholder {
+  color: $green-400;
+  opacity: 1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: Monaco, 'Lucida Console', monospace;
 }
