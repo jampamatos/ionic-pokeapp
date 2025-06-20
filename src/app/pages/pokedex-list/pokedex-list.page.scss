@@ -304,6 +304,8 @@ ion-content {
   height: $searchbar-height;
   margin: $spacing-xs auto $spacing-md;
 
+  --color: $green-400; // faz texto e placeholder ficarem verdes
+  --placeholder-color: $green-400; // placeholder também
   --icon-color: $green-400;
   --placeholder-color: $green-400;
   --padding-start: $searchbar-padding-inline;
@@ -312,6 +314,12 @@ ion-content {
   padding: 0;
   border: $searchbar-border-width solid $searchbar-border-color;
   border-radius: $radius-sm;
+}
+
+.screen-header + ion-searchbar::part(native) {
+  font-family: Monaco, 'Lucida Console', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .screen-header + ion-searchbar {
